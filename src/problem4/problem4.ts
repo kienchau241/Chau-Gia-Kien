@@ -15,6 +15,6 @@ function sum_to_n_c(n: number): number {
     return n + sum_to_n_c(n - 1);
 }
 
-const a = sum_to_n_c(365);
-
-console.log(a);
+console.log(sum_to_n_a(5)); // Output: 15
+console.log(sum_to_n_b(5)); // Output: 15
+console.log(sum_to_n_c(5)); // Output: 15

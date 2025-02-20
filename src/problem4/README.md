@@ -1,61 +1,58 @@
-# Overview
+# Sum to N Function Implementations
 
-This project implements three different approaches to calculate the summation of numbers from 1 to n in TypeScript.
+## Overview
+This repository provides three unique implementations of a function to calculate the summation of all numbers from 1 to `n`. Each implementation demonstrates a different approach.
 
-TypeScript setup with a clear project structure
+## Implementations
 
-Easy-to-run scripts for building and executing the project
-
-# Project Setup
-
-Prerequisites
-
-Ensure you have Node.js installed. If not, download and install it from Node.js Official Website.
-
-Installation
-
-Clone the repository and install dependencies:
-
-# Clone the repository
-```
-    git clone https://github.com/kienchau241/Chau-Gia-Kien.git
+### Implementation A: Iterative Approach
+```typescript
+function sum_to_n_a(n:number): number {
+    let sum =0;
+    for(let i=1;i<=n;i++){
+        sum+=i;
+    }
+	return sum ;
+}
 ```
 
-# Navigate to project folder
-```
-    cd src
-```
-```
-    cd problem4
-```
-# Initialize the project
-```
-    npm init --y
+### Implementation B: Mathematical Formula
+```typescript
+function sum_to_n_b(n: number): number {
+	return n*(n+1)/2 ;
+}
 ```
 
-# Initialize TypeScript
-
-If TypeScript is not already installed, install it with:
-```
-    npm install --save-dev typescript
-```
-
-Generate a TypeScript configuration file:
-```
-    npx tsc --init
+### Implementation C: Recursive Approach
+```typescript
+function sum_to_n_c(n: number): number {
+    if (n <= 0) return 0;
+    return n + sum_to_n_c(n - 1);
+}
 ```
 
-# Running the Code
-
-Compile TypeScript
-
-To compile TypeScript files to JavaScript, run:
+## Usage
+To use any of these implementations, call the respective function with an integer `n`:
+```typescript
+console.log(sum_to_n_a(5)); // Output: 15
+console.log(sum_to_n_b(5)); // Output: 15
+console.log(sum_to_n_c(5)); // Output: 15
 ```
-    npx tsc
+
+## Setup and Running the Project
+This is a Node.js project. Follow these steps to set up and run the project:
+
+### Install Dependencies
+```sh
+npm install
 ```
 
-# Run the Project
-
-Run TypeScript directly without compiling:
-
+### Run the Project
+```sh
 npm start
+```
+
+## Conclusion
+- **Iterative (A):** Simple, efficient for most cases.
+- **Mathematical (B):** Fastest and best for large numbers.
+- **Recursive (C):** Demonstrates recursion but not optimal for large `n` due to stack overflow risk.
