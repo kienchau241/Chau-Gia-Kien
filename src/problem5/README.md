@@ -1,17 +1,17 @@
 # ExpressJS + TypeScript + SQLite (Prisma ORM) CRUD API
 
 ## 🚀 Project Overview
-This is a **REST API** built with **ExpressJS and TypeScript**, providing full CRUD (Create, Read, Update, Delete) functionalities for a `Product` resource. The API uses **SQLite** as the database and **Prisma ORM** for database management.
+This is a **REST API** built with **ExpressJS and TypeScript**, providing full CRUD (Create, Read, Update, Delete) functionalities for a `User` resource. The API uses **SQLite** as the database and **Prisma ORM** for database management.
 
 ---
 
 ## 📌 Features
 
-- ✅ **Create a resource** (`POST /products`)
-- ✅ **List resources with filters** (`GET /products?category=Electronics&minPrice=1000`)
-- ✅ **Get resource details** (`GET /products/:id`)
-- ✅ **Update resource details** (`PUT /products/:id`)
-- ✅ **Delete a resource** (`DELETE /products/:id`)
+- ✅ **Create a resource** (`POST /users`)
+- ✅ **List resources with filters** (`GET /user?id=1&name=kien`)
+- ✅ **Get resource details** (`GET /user/:id`)
+- ✅ **Update resource details** (`PUT /users/:id`)
+- ✅ **Delete a resource** (`DELETE /users/:id`)
 
 ---
 
@@ -19,8 +19,9 @@ This is a **REST API** built with **ExpressJS and TypeScript**, providing full C
 
 ### 1️⃣ Clone the repository
 ```sh
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/kienchau241/Chau-Gia-Kien.git
+cd src
+cd problem5
 ```
 
 ### 2️⃣ Install Dependencies
@@ -59,25 +60,20 @@ npm start
 ## 🛠️ API Endpoints
 
 ### 📌 Create a Product
-**POST** `/products`
+**POST** `/users`
 #### Request Body (JSON):
 ```json
 {
-  "name": "Laptop",
-  "description": "A high-end gaming laptop",
-  "price": 1500.99,
-  "category": "Electronics"
+  "name": "Gia Kien",
+  "description": "kienchau241@gmail.com"
 }
 ```
 #### Response:
 ```json
 {
   "id": 1,
-  "name": "Laptop",
-  "description": "A high-end gaming laptop",
-  "price": 1500.99,
-  "category": "Electronics",
-  "createdAt": "2024-02-19T12:00:00.000Z"
+  "name": "Gia Kien",
+  "description": "kienchau241@gmail.com"
 }
 ```
 ---
@@ -86,78 +82,68 @@ npm start
 **GET** `/products`
 
 #### Query Parameters:
-- `category` (optional) → Filter by category
-- `minPrice` (optional) → Minimum price filter
-- `maxPrice` (optional) → Maximum price filter
+- `name` (optional) → Filter by name
+- `email` (optional) → Filter by email
 
 #### Example Request:
 ```sh
-GET /products?category=Electronics&minPrice=1000
+GET /users?email=kienchau241@gmail.com
 ```
 #### Response:
 ```json
 [
   {
     "id": 1,
-    "name": "Laptop",
-    "description": "A high-end gaming laptop",
-    "price": 1500.99,
-    "category": "Electronics",
-    "createdAt": "2024-02-19T12:00:00.000Z"
+    "name": "Gia Kien",
+    "description": "kienchau241@gmail.com"
   }
 ]
 ```
 ---
 
 ### 📌 Get Product by ID
-**GET** `/products/:id`
+**GET** `/users/:id`
 ```sh
-GET /products/1
+GET /users/1
 ```
 #### Response:
 ```json
 {
   "id": 1,
-  "name": "Laptop",
-  "description": "A high-end gaming laptop",
-  "price": 1500.99,
-  "category": "Electronics",
-  "createdAt": "2024-02-19T12:00:00.000Z"
+  "name": "Gia Kien",
+  "description": "kienchau241@gmail.com"
 }
 ```
 ---
 
 ### 📌 Update a Product
-**PUT** `/products/:id`
+**PUT** `/users/:id`
 #### Request Body:
 ```json
 {
-  "name": "Updated Laptop",
-  "price": 1400.99
+  "name": "Chau Gia Kien",
+  "email": "giakien241@gmail.com"
 }
 ```
 #### Response:
 ```json
 {
   "id": 1,
-  "name": "Updated Laptop",
-  "description": "A high-end gaming laptop",
-  "price": 1400.99,
-  "category": "Electronics",
-  "createdAt": "2024-02-19T12:00:00.000Z"
+  "name": "Chau Gia Kien",
+  "email": "giakien241@gmail.com"
 }
 ```
 ---
 
 ### 📌 Delete a Product
-**DELETE** `/products/:id`
+**DELETE** `/users/:id`
 ```sh
-DELETE /products/1
+DELETE /users/1
 ```
 #### Response:
 ```json
 {
-  "message": "Product deleted successfully"
+  "message": "User with id 1 deleted successfully"
 }
 ```
 
@@ -169,44 +155,6 @@ DELETE /products/1
 - **SQLite** - Lightweight database
 - **Prisma ORM** - Database ORM for TypeScript
 - **Nodemon** - Hot-reloading in development
-
----
-
-## 📖 Additional Commands
-
-### 🌍 Run Prisma Studio (GUI for DB management)
-```sh
-npx prisma studio
-```
-
-### 🛠️ Run Database Migrations
-```sh
-npx prisma migrate dev --name update_schema
-```
-
----
-
-## 🚀 Deployment
-For production, ensure that `DATABASE_URL` is correctly set and run:
-```sh
-npm run build
-npm start
-```
-
----
-
-## 📜 License
-This project is licensed under the MIT License.
-
----
-
-## 🤝 Contributing
-Feel free to contribute by submitting pull requests! 🎉
-
----
-
-## 📞 Contact
-For any issues, feel free to open an **Issue** on GitHub!
 
 ---
 
