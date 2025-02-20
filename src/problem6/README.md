@@ -82,8 +82,3 @@ A WebSocket connection will be used to broadcast updated scores to all clients.
 - **Caching:** Use Redis for fast leaderboard retrieval.
 - **Async Processing:** Implement background jobs for bulk updates.
 - **Database Optimization:** Use indexed queries to handle score updates efficiently.
-
-## Future Improvements
-- Implement Web3 verification for decentralized trust.
-- Introduce AI-based fraud detection to monitor suspicious score updates.
-- Enable configurable score decay to maintain leaderboard fairness.
