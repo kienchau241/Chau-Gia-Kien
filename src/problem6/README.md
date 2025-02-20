@@ -82,3 +82,22 @@ A WebSocket connection will be used to broadcast updated scores to all clients.
 - **Caching:** Use Redis for fast leaderboard retrieval.
 - **Async Processing:** Implement background jobs for bulk updates.
 - **Database Optimization:** Use indexed queries to handle score updates efficiently.
+
+
+## Execution Flow Diagram
+
+![Alt text](image/diagram.png)
+
+## Additional Comments for Improvement
+Here are some potential improvements for the backend engineering team:
+
+Scalability Considerations
+
+- Use Redis/Zookeeper for distributed locks to avoid race conditions in concurrent score updates.
+- Implement Kafka or RabbitMQ for handling high-frequency event-driven updates.
+
+
+Data Consistency
+
+- Use eventual consistency patterns if using microservices.
+- Store timestamps for each score update to audit potential fraudulent activity.
